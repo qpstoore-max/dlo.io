@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مراعي تيماء | لحوم طازجة وذبائح — ذبح حلال وتوصيل مبرد</title>
+<meta name="description" content="مراعي تيماء: ذبائح نعيمي وحري وتيوس وعجول طازجة، ذبح حلال يدوي، تقطيع على ذوقك، وتوصيل مبرد لباب البيت.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --palm:#17352A;        /* ليل النخيل */
+  --palm-deep:#0F241C;
+  --sand:#F2E9D5;        /* سمن بلدي */
+  --ivory:#FBF7EC;
+  --sadu-red:#9E2B25;    /* أحمر السدو */
+  --sadu-red-dark:#7E211C;
+  --gold:#D9A441;        /* ذهب زعفران */
+  --ink:#241E16;
+  --ink-soft:#5C5344;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(23,53,42,.12);
+  --font-display:'Lalezar', system-ui, sans-serif;
+  --font-body:'Readex Pro', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:var(--font-body);
+  background:var(--sand);
+  color:var(--ink);
+  line-height:1.8;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+/* ====== شريط السدو (العنصر المميز) ====== */
+.sadu{
+  height:22px;
+  background:
+    repeating-linear-gradient(135deg, var(--gold) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(45deg,  var(--gold) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(90deg, var(--sadu-red) 0 34px, var(--palm) 34px 44px, var(--ivory) 44px 48px, var(--palm) 48px 58px);
+  background-blend-mode:normal;
+}
+.sadu--thin{height:10px}
+
+/* ====== الشريط العلوي ====== */
+.topbar{
+  background:var(--palm-deep);
+  color:var(--sand);
+  font-size:.82rem;
+  text-align:center;
+  padding:.45rem 1rem;
+  letter-spacing:.2px;
+}
+.topbar b{color:var(--gold);font-weight:600}
+
+/* ====== الترويسة ====== */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:var(--palm);
+  color:var(--ivory);
+  box-shadow:0 2px 14px rgba(0,0,0,.25);
+}
+.nav-wrap{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;gap:1.2rem;
+  padding:.7rem 1.25rem;
+}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand-mark{
+  width:46px;height:46px;border-radius:10px;
+  background:var(--sadu-red);
+  display:grid;place-items:center;flex:none;
+}
+.brand-name{font-family:var(--font-display);font-size:1.55rem;line-height:1;padding-top:.3rem}
+.brand-tag{font-size:.7rem;color:var(--gold);letter-spacing:.5px}
+nav.main{display:flex;gap:1.4rem;margin-inline-start:auto;font-size:.95rem}
+nav.main a{opacity:.9;padding:.3rem 0;border-bottom:2px solid transparent;transition:.2s}
+nav.main a:hover{opacity:1;border-color:var(--gold)}
+.cart-btn{
+  position:relative;
+  background:var(--sadu-red);color:#fff;
+  padding:.55rem 1.1rem;border-radius:999px;
+  font-family:var(--font-body);font-weight:600;font-size:.9rem;
+  display:flex;align-items:center;gap:.5rem;
+  transition:background .2s;
+}
+.cart-btn:hover{background:var(--sadu-red-dark)}
+.cart-count{
+  background:var(--gold);color:var(--palm-deep);
+  min-width:22px;height:22px;border-radius:999px;
+  display:grid;place-items:center;font-size:.78rem;font-weight:700;
+}
+.menu-toggle{display:none;color:var(--ivory);font-size:1.6rem;line-height:1}
+
+/* ====== البطل ====== */
+.hero{
+  background:var(--palm);
+  color:var(--ivory);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{ /* نجوم صحراء خافتة */
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(217,164,65,.18) 1px, transparent 1.5px);
+  background-size:44px 44px;
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;
+  padding:4.5rem 1.25rem 5rem;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;
+  position:relative;
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.6rem, 6vw, 4.4rem);
+  line-height:1.25;font-weight:400;
+}
+.hero h1 .accent{color:var(--gold)}
+.hero p.lead{
+  margin-top:1rem;font-size:1.08rem;color:#DCD3BE;max-width:32rem;font-weight:300;
+}
+.hero-actions{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 1.9rem;border-radius:999px;
+  font-weight:600;font-size:1rem;transition:.2s;
+}
+.btn-primary{background:var(--sadu-red);color:#fff}
+.btn-primary:hover{background:var(--sadu-red-dark);transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid var(--gold);color:var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:var(--palm-deep)}
+.trust{
+  margin-top:2.6rem;display:flex;gap:1.8rem;flex-wrap:wrap;
+}
+.trust div{display:flex;align-items:center;gap:.55rem;font-size:.88rem;color:#DCD3BE}
+.trust svg{flex:none}
+.hero-art{
+  justify-self:center;
+  background:var(--ivory);
+  border-radius:20px;
+  padding:2rem 2rem 1.4rem;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  rotate:-2deg;
+  color:var(--ink);
+  width:min(340px, 100%);
+  text-align:center;
+}
+.hero-art .sadu--thin{border-radius:6px;margin-bottom:1.2rem}
+.hero-art h3{font-family:var(--font-display);font-size:1.5rem;color:var(--palm);font-weight:400}
+.hero-art .price-tag{
+  font-family:var(--font-display);font-size:2.6rem;color:var(--sadu-red);line-height:1.1;
+}
+.hero-art small{color:var(--ink-soft);font-size:.8rem}
+.hero-art .stamp{
+  margin:1.1rem auto 0;width:fit-content;
+  border:2px dashed var(--gold);color:var(--palm);
+  padding:.2rem 1rem;border-radius:999px;font-size:.78rem;font-weight:600;
+}
+
+/* ====== الأقسام العامة ====== */
+section{padding:4rem 1.25rem}
+.container{max-width:1200px;margin:0 auto}
+.sec-head{margin-bottom:2.2rem;text-align:center}
+.sec-head .eyebrow{
+  color:var(--sadu-red);font-weight:600;font-size:.85rem;letter-spacing:1px;
+}
+.sec-head h2{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(1.9rem, 4vw, 2.7rem);color:var(--palm);line-height:1.35;
+}
+.sec-head p{color:var(--ink-soft);max-width:38rem;margin:0 auto;font-size:.95rem}
+
+/* ====== التصنيفات ====== */
+.cats{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.4rem}
+.cat-chip{
+  padding:.5rem 1.4rem;border-radius:999px;
+  background:var(--ivory);border:1.5px solid #E0D5BC;
+  font-weight:500;font-size:.92rem;color:var(--ink-soft);transition:.2s;
+}
+.cat-chip:hover{border-color:var(--palm);color:var(--palm)}
+.cat-chip.active{background:var(--palm);border-color:var(--palm);color:var(--ivory)}
+
+/* ====== شبكة المنتجات ====== */
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:1.4rem;
+}
+.card{
+  background:var(--ivory);border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .2s, box-shadow .2s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(23,53,42,.18)}
+.card-media{
+  background:linear-gradient(160deg, var(--palm) 0%, var(--palm-deep) 100%);
+  padding:1.6rem;display:grid;place-items:center;position:relative;min-height:150px;
+}
+.card-media svg{width:86px;height:86px}
+.badge{
+  position:absolute;top:.8rem;inset-inline-start:.8rem;
+  background:var(--gold);color:var(--palm-deep);
+  font-size:.72rem;font-weight:700;padding:.15rem .7rem;border-radius:999px;
+}
+.card-body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.card-body h3{font-family:var(--font-display);font-weight:400;font-size:1.25rem;color:var(--palm)}
+.card-body .desc{font-size:.83rem;color:var(--ink-soft);line-height:1.7;flex:1}
+.meta{display:flex;align-items:center;justify-content:space-between;font-size:.8rem;color:var(--ink-soft)}
+.price{font-family:var(--font-display);font-size:1.5rem;color:var(--sadu-red);line-height:1}
+.price small{font-family:var(--font-body);font-size:.75rem;font-weight:600}
+.cut-select{
+  width:100%;padding:.5rem .8rem;border-radius:9px;
+  border:1.5px solid #E0D5BC;background:#fff;
+  font-family:var(--font-body);font-size:.85rem;color:var(--ink);
+}
+.add-btn{
+  margin-top:.3rem;
+  background:var(--palm);color:var(--ivory);
+  padding:.65rem;border-radius:10px;font-weight:600;font-size:.92rem;
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  transition:background .2s;
+}
+.add-btn:hover{background:var(--sadu-red)}
+
+/* ====== طريقة الطلب ====== */
+.steps-band{background:var(--palm);color:var(--ivory)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.5rem}
+.step{text-align:center;padding:0 .6rem}
+.step-num{
+  font-family:var(--font-display);font-size:2.4rem;color:var(--gold);line-height:1;
+}
+.step h3{font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin:.5rem 0 .3rem}
+.step p{font-size:.88rem;color:#CFC6B0;font-weight:300}
+.steps-band .sec-head h2{color:var(--ivory)}
+.steps-band .sec-head .eyebrow{color:var(--gold)}
+
+/* ====== لماذا نحن ====== */
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.3rem;margin-top:2.4rem}
+.feat{
+  background:var(--ivory);border-radius:var(--radius);padding:1.6rem 1.4rem;
+  box-shadow:var(--shadow);text-align:center;
+}
+.feat .ic{
+  width:54px;height:54px;margin:0 auto .8rem;border-radius:14px;
+  background:var(--sand);display:grid;place-items:center;
+}
+.feat h3{font-family:var(--font-display);font-weight:400;font-size:1.15rem;color:var(--palm);margin-bottom:.3rem}
+.feat p{font-size:.85rem;color:var(--ink-soft)}
+
+/* ====== آراء العملاء ====== */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.3rem;margin-top:2.4rem}
+.quote{
+  background:var(--ivory);border-radius:var(--radius);padding:1.6rem;
+  box-shadow:var(--shadow);position:relative;
+}
+.quote::before{
+  content:"";display:block;height:6px;border-radius:6px;margin-bottom:1rem;
+  background:repeating-linear-gradient(90deg, var(--sadu-red) 0 18px, var(--gold) 18px 26px, var(--palm) 26px 44px);
+}
+.quote p{font-size:.9rem;color:var(--ink);line-height:1.9}
+.quote footer{margin-top:.9rem;font-size:.82rem;color:var(--ink-soft);font-weight:600}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.85rem}
+
+/* ====== التذييل ====== */
+footer.site{background:var(--palm-deep);color:#CFC6B0;font-size:.9rem}
+.foot-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:2.5rem;
+  padding:3.5rem 1.25rem 2.5rem;
+}
+.foot-grid h4{font-family:var(--font-display);font-weight:400;color:var(--ivory);font-size:1.2rem;margin-bottom:.8rem}
+.foot-grid ul{list-style:none;display:grid;gap:.45rem}
+.foot-grid a:hover{color:var(--gold)}
+.foot-note{
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;padding:1.1rem;font-size:.78rem;color:#8E8368;
+}
+.wa-link{
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:.6rem;
+  background:#1F7A4D;color:#fff;padding:.55rem 1.2rem;border-radius:999px;font-weight:600;
+}
+.wa-link:hover{background:#176340;color:#fff}
+
+/* ====== سلة المشتريات ====== */
+.overlay{
+  position:fixed;inset:0;background:rgba(15,36,28,.55);
+  opacity:0;pointer-events:none;transition:opacity .25s;z-index:90;
+}
+.overlay.show{opacity:1;pointer-events:auto}
+.cart-drawer{
+  position:fixed;top:0;bottom:0;right:0;
+  width:min(400px, 92vw);
+  background:var(--ivory);z-index:100;
+  transform:translateX(110%);
+  visibility:hidden;
+  transition:transform .3s ease, visibility 0s linear .3s;
+  display:flex;flex-direction:column;
+  box-shadow:-12px 0 40px rgba(0,0,0,.3);
+}
+.cart-drawer.open{
+  transform:translateX(0);
+  visibility:visible;
+  transition:transform .3s ease, visibility 0s;
+}
+.cart-head{
+  background:var(--palm);color:var(--ivory);
+  padding:1.1rem 1.3rem;display:flex;align-items:center;justify-content:space-between;
+}
+.cart-head h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem}
+.cart-close{color:var(--ivory);font-size:1.7rem;line-height:1}
+.cart-items{flex:1;overflow-y:auto;padding:1.2rem 1.3rem;display:grid;gap:1rem;align-content:start}
+.cart-empty{text-align:center;color:var(--ink-soft);padding:3rem 1rem}
+.cart-empty svg{margin:0 auto 1rem;opacity:.4}
+.c-item{
+  display:grid;grid-template-columns:auto 1fr auto;gap:.9rem;align-items:center;
+  background:#fff;border:1px solid #EDE4CE;border-radius:12px;padding:.8rem;
+}
+.c-thumb{
+  width:52px;height:52px;border-radius:10px;flex:none;
+  background:var(--palm);display:grid;place-items:center;
+}
+.c-thumb svg{width:34px;height:34px}
+.c-info h4{font-size:.9rem;font-weight:600;color:var(--palm)}
+.c-info .cut{font-size:.74rem;color:var(--ink-soft)}
+.c-info .p{font-size:.85rem;color:var(--sadu-red);font-weight:700}
+.c-actions{display:grid;gap:.4rem;justify-items:center}
+.qty{display:flex;align-items:center;gap:.5rem;background:var(--sand);border-radius:999px;padding:.15rem .5rem}
+.qty button{width:24px;height:24px;font-size:1rem;font-weight:700;color:var(--palm)}
+.qty span{min-width:20px;text-align:center;font-weight:600;font-size:.9rem}
+.rm{font-size:.72rem;color:var(--sadu-red);text-decoration:underline}
+.cart-foot{border-top:2px solid var(--sand);padding:1.2rem 1.3rem;display:grid;gap:.8rem}
+.total-row{display:flex;justify-content:space-between;align-items:center}
+.total-row span{color:var(--ink-soft);font-size:.9rem}
+.total-row b{font-family:var(--font-display);font-size:1.7rem;color:var(--sadu-red);font-weight:400}
+.checkout{
+  background:#1F7A4D;color:#fff;padding:.9rem;border-radius:12px;
+  font-weight:700;font-size:1rem;display:flex;align-items:center;justify-content:center;gap:.6rem;
+}
+.checkout:hover{background:#176340}
+.cart-note{font-size:.72rem;color:var(--ink-soft);text-align:center}
+
+/* ====== إشعار الإضافة ====== */
+.toast{
+  position:fixed;bottom:1.5rem;left:50%;
+  transform:translate(-50%, 200%);
+  opacity:0;visibility:hidden;
+  background:var(--palm);color:var(--ivory);
+  padding:.75rem 1.6rem;border-radius:999px;font-size:.9rem;font-weight:600;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:120;
+  transition:transform .3s ease, opacity .3s ease, visibility 0s linear .3s;
+  display:flex;gap:.5rem;align-items:center;white-space:nowrap;
+}
+.toast.show{
+  transform:translate(-50%, 0);opacity:1;visibility:visible;
+  transition:transform .3s ease, opacity .3s ease, visibility 0s;
+}
+.toast .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+
+/* ====== التجاوب ====== */
+@media (max-width: 900px){
+  .hero-inner{grid-template-columns:1fr;padding:3rem 1.25rem 3.5rem;text-align:center}
+  .hero p.lead{margin-inline:auto}
+  .hero-actions,.trust{justify-content:center}
+  .hero-art{rotate:0deg}
+  .steps{grid-template-columns:1fr;gap:2.2rem}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media (max-width: 760px){
+  nav.main{
+    position:fixed;inset:0;top:0;
+    background:var(--palm-deep);
+    flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+    font-size:1.3rem;
+    transform:translateY(-100%);transition:transform .3s;z-index:80;
+  }
+  nav.main.open{transform:translateY(0)}
+  .menu-toggle{display:block;z-index:85;position:relative}
+  .brand-tag{display:none}
+}
+@media (max-width: 520px){
+  section{padding:3rem 1rem}
+  .foot-grid{grid-template-columns:1fr;padding-inline:1rem}
+  .grid{grid-template-columns:1fr 1fr;gap:.9rem}
+  .card-media{min-height:110px;padding:1rem}
+  .card-media svg{width:60px;height:60px}
+  .card-body{padding:.8rem .85rem 1rem}
+  .card-body h3{font-size:1.05rem}
+  .desc{display:none}
+}
+@media (max-width: 380px){
+  .grid{grid-template-columns:1fr}
+  .desc{display:block}
+}
+</style>
+</head>
+<body>
+
+<!-- الشريط العلوي -->
+<div class="topbar">توصيل مبرد داخل تبوك وتيماء خلال <b>٤ ساعات</b> — الطلب قبل الساعة ٨ مساءً يصل بنفس اليوم</div>
+
+<!-- الترويسة -->
+<header class="site">
+  <div class="nav-wrap">
+    <a href="#" class="brand" aria-label="مراعي تيماء - الرئيسية">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3c-2 2.5-6 3-8 6 0 4 3 6 5 6.5-.5 1.5-1.5 2.5-3 3.5h12c-1.5-1-2.5-2-3-3.5 2-.5 5-2.5 5-6.5-2-3-6-3.5-8-6Z" fill="#F2E9D5"/></svg>
+      </span>
+      <span>
+        <span class="brand-name">مراعي تيماء</span><br>
+        <span class="brand-tag">لحوم طازجة · ذبح حلال</span>
+      </span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="القائمة" aria-expanded="false">☰</button>
+    <nav class="main" id="mainNav">
+      <a href="#products">المنتجات</a>
+      <a href="#how">طريقة الطلب</a>
+      <a href="#why">لماذا نحن</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <button class="cart-btn" id="cartOpen" aria-label="فتح سلة المشتريات">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1.5"/><circle cx="18" cy="21" r="1.5"/><path d="M2.5 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21.5 8H6.2"/></svg>
+      السلة
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- البطل -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>من مراعي تيماء<br><span class="accent">إلى مائدتكم</span> طازجًا</h1>
+      <p class="lead">ذبائح نعيمي وحري وتيوس بلدية تُذبح يوم طلبك، تُقطّع على ذوقك، وتصلك مبردة لباب البيت. لا تجميد، ولا وسطاء — من المرعى مباشرة.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary">تصفح الذبائح</a>
+        <a href="#how" class="btn btn-ghost">كيف أطلب؟</a>
+      </div>
+      <div class="trust">
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          ذبح حلال يدوي
+        </div>
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="2"><rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 10h3l2 3v4h-5M7.5 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>
+          نقل مبرد ٠–٤°
+        </div>
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          وصول خلال ٤ ساعات
+        </div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="sadu sadu--thin"></div>
+      <h3>عرض اليوم</h3>
+      <div class="price-tag">1,150 <small style="font-size:1rem">ر.س</small></div>
+      <p style="font-weight:600;color:var(--palm)">ذبيحة نعيمي بلدي كاملة</p>
+      <small>الوزن التقريبي 16–18 كجم · شامل الذبح والتقطيع والتوصيل</small>
+      <div class="stamp">مذبوحة يوم الطلب ✓</div>
+    </div>
+  </div>
+</div>
+
+<div class="sadu" role="presentation"></div>
+
+<!-- المنتجات -->
+<section id="products">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">قائمة اللحوم</div>
+      <h2>اختر ذبيحتك.. ونحن نجهّزها</h2>
+      <p>كل الأسعار شاملة الذبح والسلخ والتقطيع والتغليف. اختر طريقة التقطيع المناسبة لك قبل الإضافة للسلة.</p>
+    </div>
+
+    <div class="cats" id="cats" role="tablist" aria-label="تصنيفات المنتجات">
+      <button class="cat-chip active" data-cat="all">الكل</button>
+      <button class="cat-chip" data-cat="sheep">نعيمي وحري</button>
+      <button class="cat-chip" data-cat="goat">تيوس وماعز</button>
+      <button class="cat-chip" data-cat="calf">عجول</button>
+      <button class="cat-chip" data-cat="cuts">لحوم مقطعة</button>
+    </div>
+
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<div class="sadu" role="presentation"></div>
+
+<!-- طريقة الطلب -->
+<section class="steps-band" id="how">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">ثلاث خطوات فقط</div>
+      <h2>طريقة الطلب</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">١</div>
+        <h3>اختر وقطّع على ذوقك</h3>
+        <p>أضف الذبيحة أو اللحم للسلة، وحدد طريقة التقطيع: مفطح، أرباع، مقطع وسط، أو مفروم.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">٢</div>
+        <h3>أكّد طلبك عبر واتساب</h3>
+        <p>من السلة اضغط «إتمام الطلب» وسيصلنا طلبك مفصلًا، ونؤكد لك الموعد والعنوان.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">٣</div>
+        <h3>استلم مبردًا بنفس اليوم</h3>
+        <p>نذبح بعد تأكيد الطلب مباشرة، ونوصّل بسيارات مبردة. الدفع عند الاستلام أو تحويل.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- لماذا نحن -->
+<section id="why">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">وعدنا لك</div>
+      <h2>لماذا مراعي تيماء؟</h2>
+    </div>
+    <div class="feats">
+      <div class="feat">
+        <div class="ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17352A" stroke-width="2"><path d="M12 3c-2 2.5-6 3-8 6 0 4 3 6 5 6.5-.5 1.5-1.5 2.5-3 3.5h12c-1.5-1-2.5-2-3-3.5 2-.5 5-2.5 5-6.5-2-3-6-3.5-8-6Z"/></svg>
+        </div>
+        <h3>مواشٍ بلدية من مراعينا</h3>
+        <p>نربّي أغنامنا في مراعي تيماء على الشعير والبرسيم، بلا هرمونات ولا أعلاف صناعية.</p>
+      </div>
+      <div class="feat">
+        <div class="ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17352A" stroke-width="2"><path d="M12 2v20M5 7l7-4 7 4M5 12h14M7 17h10"/></svg>
+        </div>
+        <h3>ذبح حلال بإشراف بيطري</h3>
+        <p>مسلخ مرخّص وذبح يدوي على الطريقة الشرعية، مع فحص بيطري لكل ذبيحة قبل التسليم.</p>
+      </div>
+      <div class="feat">
+        <div class="ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17352A" stroke-width="2"><path d="M12 3v18M8 7l4-4 4 4M6 13c0 4 2.5 7 6 8 3.5-1 6-4 6-8"/></svg>
+        </div>
+        <h3>سلسلة تبريد كاملة</h3>
+        <p>من المسلخ إلى بابك في سيارات مبردة ٠–٤ درجات، بتغليف صحي مفرّغ من الهواء.</p>
+      </div>
+      <div class="feat">
+        <div class="ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17352A" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3>استرجاع بلا نقاش</h3>
+        <p>إن لم يعجبك اللحم عند الاستلام، أعِده فورًا ونرجّع لك كامل المبلغ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- آراء العملاء: أضف هنا تقييمات عملائك الحقيقية فقط (فُعّل القالب بإزالة علامات التعليق)
+<section id="reviews" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head"><div class="eyebrow">قالوا عنا</div><h2>آراء عملائنا</h2></div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars" aria-label="خمس نجوم">★★★★★</div>
+        <p>نص التقييم الحقيقي</p>
+        <footer>اسم العميل —  </footer>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<div class="sadu" role="presentation"></div>
+
+<!-- التذييل -->
+<footer class="site" id="contact">
+  <div class="foot-grid">
+    <div>
+      <h4>مراعي تيماء</h4>
+      <p style="font-size:.85rem;line-height:1.9">متجر سعودي متخصص في الذبائح واللحوم الطازجة البلدية، من مراعينا في تيماء إلى موائد منطقة تبوك.</p>
+      <a class="wa-link" href="https://wa.me/966550368909" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1a15 15 0 0 1-6.6-5.8c-.8-1.3-1.2-2.4-1.1-3 .1-.7.8-1.6 1.4-1.7h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.5.8c-.1.2-.2.4 0 .7.5.9 1.9 2.4 3.3 3 .3.1.5.1.7-.1l.7-.8c.2-.2.4-.3.6-.2l2.2 1c.2.1.4.2.4.4 0 .1.1.4-.4 1.2Z"/></svg>
+        اطلب عبر واتساب
+      </a>
+    </div>
+    <div>
+      <h4>روابط</h4>
+      <ul>
+        <li><a href="#products">المنتجات</a></li>
+        <li><a href="#how">طريقة الطلب</a></li>
+        <li><a href="#why">لماذا نحن</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>أوقات العمل</h4>
+      <ul>
+        <li>السبت – الخميس: ٧ ص – ١٠ م</li>
+        <li>الجمعة: ٢ م – ١٠ م</li>
+        <li>آخر موعد لطلبات اليوم: ٨ م</li>
+      </ul>
+    </div>
+    <div>
+      <h4>تواصل معنا</h4>
+      <ul>
+        <li>📞 0550&#8203;368&#8203;909</li>
+        <li>📍 تيماء — طريق تبوك    </li>
+        <li>✉️ order@maraitayma.sa</li>
+        <li>🚚 تيماء </li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-note">© 2026 مراعي تيماء · الحقوق محفوظة: أبو ساهر الشافعي · الأسعار شاملة ضريبة القيمة المضافة · إصدار 3.3</div>
+</footer>
+
+<!-- سلة المشتريات -->
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="سلة المشتريات" role="dialog" aria-modal="true">
+  <div class="cart-head">
+    <h3>سلة المشتريات</h3>
+    <button class="cart-close" id="cartClose" aria-label="إغلاق السلة">×</button>
+  </div>
+  <div class="sadu sadu--thin"></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot" hidden>
+    <div class="total-row">
+      <span>الإجمالي (شامل الضريبة)</span>
+      <b id="cartTotal">0 ر.س</b>
+    </div>
+    <a class="checkout" id="checkoutBtn" href="#" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1a15 15 0 0 1-6.6-5.8c-.8-1.3-1.2-2.4-1.1-3 .1-.7.8-1.6 1.4-1.7h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.5.8c-.1.2-.2.4 0 .7.5.9 1.9 2.4 3.3 3 .3.1.5.1.7-.1l.7-.8c.2-.2.4-.3.6-.2l2.2 1c.2.1.4.2.4.4 0 .1.1.4-.4 1.2Z"/></svg>
+      إتمام الطلب عبر واتساب
+    </a>
+    <div class="cart-note">بعد الضغط سيُفتح واتساب وفيه تفاصيل طلبك كاملة لتأكيدها معنا</div>
+  </div>
+</aside>
+
+<div class="toast" id="toast"><span class="dot"></span><span id="toastMsg">أُضيف إلى السلة</span></div>
+
+<script>
+/* ====== البيانات ====== */
+const ICONS = {
+  sheep: '<svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="36" rx="18" ry="13" fill="#F2E9D5"/><circle cx="20" cy="30" r="4" fill="#F2E9D5"/><circle cx="26" cy="25" r="4.5" fill="#F2E9D5"/><circle cx="33" cy="23" r="4.5" fill="#F2E9D5"/><circle cx="40" cy="25" r="4.5" fill="#F2E9D5"/><circle cx="45" cy="30" r="4" fill="#F2E9D5"/><ellipse cx="48" cy="38" rx="6.5" ry="8" fill="#D9A441"/><circle cx="50" cy="36" r="1.4" fill="#17352A"/><path d="M44 33c-2-2-2-5 0-6" stroke="#9E2B25" stroke-width="2" stroke-linecap="round"/><rect x="22" y="47" width="3.5" height="8" rx="1.5" fill="#D9A441"/><rect x="36" y="47" width="3.5" height="8" rx="1.5" fill="#D9A441"/></svg>',
+  goat: '<svg viewBox="0 0 64 64" fill="none"><ellipse cx="30" cy="38" rx="17" ry="12" fill="#D9A441"/><ellipse cx="46" cy="32" rx="6.5" ry="8.5" fill="#D9A441"/><path d="M44 25c-3-4-2-8 1-10M49 25c3-4 2-8-1-10" stroke="#F2E9D5" stroke-width="2.5" stroke-linecap="round"/><circle cx="48" cy="30" r="1.4" fill="#17352A"/><path d="M46 40c0 3 1 5 2 6" stroke="#F2E9D5" stroke-width="2" stroke-linecap="round"/><rect x="20" y="47" width="3.5" height="9" rx="1.5" fill="#F2E9D5"/><rect x="34" y="47" width="3.5" height="9" rx="1.5" fill="#F2E9D5"/></svg>',
+  calf: '<svg viewBox="0 0 64 64" fill="none"><ellipse cx="30" cy="38" rx="19" ry="13" fill="#F2E9D5"/><ellipse cx="47" cy="30" rx="8" ry="9" fill="#F2E9D5"/><path d="M42 22c-3-2-3-5-1-7M52 22c3-2 3-5 1-7" stroke="#D9A441" stroke-width="3" stroke-linecap="round"/><ellipse cx="47" cy="35" rx="4.5" ry="3" fill="#D9A441"/><circle cx="49" cy="27" r="1.5" fill="#17352A"/><rect x="19" y="48" width="4" height="9" rx="1.5" fill="#D9A441"/><rect x="35" y="48" width="4" height="9" rx="1.5" fill="#D9A441"/></svg>',
+  cuts: '<svg viewBox="0 0 64 64" fill="none"><path d="M14 40c0-12 9-22 21-22 8 0 15 5 15 13 0 9-8 12-14 12-4 0-6-2-6-5 0-2 2-4 4-4" stroke="#F2E9D5" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="34" cy="31" r="5" fill="#9E2B25"/><circle cx="34" cy="31" r="2" fill="#F2E9D5"/><path d="M12 50h40" stroke="#D9A441" stroke-width="3" stroke-linecap="round"/></svg>'
+};
+
+const CUTS = ['مفطح كامل','أرباع','مقطع وسط','مقطع صغير (مبشور)'];
+const CUTS_MEAT = ['قطع كبيرة','قطع وسط','مكعبات','مفروم'];
+
+const PRODUCTS = [
+  {id:1, cat:'sheep', icon:'sheep', badge:'الأكثر طلبًا', name:'ذبيحة نعيمي بلدي', desc:'نعيمي مرعى، لحمه طري ودهنه أبيض. مثالي للمفطح والمندي.', weight:'16–18 كجم', price:1150, cuts:CUTS},
+  {id:2, cat:'sheep', icon:'sheep', badge:'', name:'ذبيحة حري', desc:'الحري معروف بقلة دهنه ونكهته القوية، خيار أهل الذوق.', weight:'15–17 كجم', price:1350, cuts:CUTS},
+  {id:3, cat:'sheep', icon:'sheep', badge:'اقتصادي', name:'نصف ذبيحة نعيمي', desc:'نصف ذبيحة مقسومة بالطول، تكفي عزيمة صغيرة.', weight:'8–9 كجم', price:600, cuts:['أرباع','مقطع وسط','مقطع صغير']},
+  {id:4, cat:'goat', icon:'goat', badge:'', name:'تيس بلدي', desc:'تيس مرعى حجم وسط، الخيار الأول للمندي والحنيذ.', weight:'12–14 كجم', price:1050, cuts:CUTS},
+  {id:5, cat:'goat', icon:'goat', badge:'', name:'جدي صغير', desc:'جدي رضيع لحمه ناعم جدًا، مناسب للشوي والمظبي.', weight:'7–9 كجم', price:850, cuts:CUTS},
+  {id:6, cat:'calf', icon:'calf', badge:'للمناسبات', name:'عجل بلدي كامل', desc:'عجل مرعى للولائم الكبيرة، يُجهّز بموعد مسبق ٢٤ ساعة.', weight:'90–110 كجم', price:4900, cuts:['أرباع','مقطع وسط','حسب الاتفاق']},
+  {id:7, cat:'calf', icon:'calf', badge:'', name:'ربع عجل', desc:'ربع عجل بلدي مقطع حسب طلبك، مناسب للتخزين الشهري.', weight:'22–27 كجم', price:1300, cuts:CUTS_MEAT},
+  {id:8, cat:'cuts', icon:'cuts', badge:'طازج يوميًا', name:'لحم نعيمي مقطع — كيلو', desc:'من ذبائح اليوم، تغليف مفرّغ من الهواء.', weight:'1 كجم', price:75, cuts:CUTS_MEAT},
+  {id:9, cat:'cuts', icon:'cuts', badge:'', name:'مفروم نعيمي ناعم — كيلو', desc:'مفروم طازج بدون إضافات، نسبة دهن معتدلة.', weight:'1 كجم', price:70, cuts:['فرم ناعم','فرم خشن']},
+  {id:10, cat:'cuts', icon:'cuts', badge:'', name:'ريش غنم — كيلو', desc:'ريش مشذّبة جاهزة للشوي المباشر.', weight:'1 كجم', price:95, cuts:['كاملة','مفرودة (فرنساوي)']},
+  {id:11, cat:'cuts', icon:'cuts', badge:'', name:'كبدة وملحقات طازجة', desc:'كبدة وقلب وكلاوي من ذبائح الصباح.', weight:'1 كجم', price:65, cuts:['كاملة','مقطعة شرائح']},
+  {id:12, cat:'goat', icon:'goat', badge:'', name:'ذبيحة ماعز بلدي', desc:'ماعز مرعى، لحم خفيف قليل الدهن يناسب الكبسة اليومية.', weight:'10–12 كجم', price:900, cuts:CUTS},
+];
+
+/* ====== عرض المنتجات ====== */
+const grid = document.getElementById('productGrid');
+const fmt = n => n.toLocaleString('ar-SA');
+
+function renderProducts(cat='all'){
+  const list = cat==='all' ? PRODUCTS : PRODUCTS.filter(p=>p.cat===cat);
+  grid.innerHTML = list.map(p=>`
+    <article class="card" data-id="${p.id}">
+      <div class="card-media">
+        ${p.badge?`<span class="badge">${p.badge}</span>`:''}
+        ${ICONS[p.icon]}
+      </div>
+      <div class="card-body">
+        <h3>${p.name}</h3>
+        <p class="desc">${p.desc}</p>
+        <div class="meta"><span>⚖️ ${p.weight}</span><span class="price">${fmt(p.price)} <small>ر.س</small></span></div>
+        <label style="font-size:.75rem;color:var(--ink-soft)">طريقة التقطيع
+          <select class="cut-select">${p.cuts.map(c=>`<option>${c}</option>`).join('')}</select>
+        </label>
+        <button class="add-btn" data-add="${p.id}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+          أضِف إلى السلة
+        </button>
+      </div>
+    </article>`).join('');
+}
+renderProducts();
+
+/* تصفية التصنيفات */
+document.getElementById('cats').addEventListener('click', e=>{
+  const chip = e.target.closest('.cat-chip'); if(!chip) return;
+  document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  renderProducts(chip.dataset.cat);
+});
+
+/* ====== السلة (بالذاكرة) ====== */
+let cart = []; // {id, name, icon, price, cut, qty}
+
+const drawer = document.getElementById('cartDrawer');
+const overlay = document.getElementById('overlay');
+const cartItemsEl = document.getElementById('cartItems');
+const cartFoot = document.getElementById('cartFoot');
+const cartCount = document.getElementById('cartCount');
+const cartTotal = document.getElementById('cartTotal');
+
+function openCart(){ drawer.classList.add('open'); overlay.classList.add('show'); }
+function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('show'); }
+document.getElementById('cartOpen').addEventListener('click', openCart);
+document.getElementById('cartClose').addEventListener('click', closeCart);
+overlay.addEventListener('click', closeCart);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeCart(); });
+
+grid.addEventListener('click', e=>{
+  const btn = e.target.closest('[data-add]'); if(!btn) return;
+  const id = +btn.dataset.add;
+  const p = PRODUCTS.find(x=>x.id===id);
+  const cut = btn.closest('.card').querySelector('.cut-select').value;
+  const existing = cart.find(i=>i.id===id && i.cut===cut);
+  if(existing){ existing.qty++; } else { cart.push({id:p.id,name:p.name,icon:p.icon,price:p.price,cut,qty:1}); }
+  updateCart();
+  showToast(`أُضيف «${p.name}» إلى السلة`);
+});
+
+function updateCart(){
+  const count = cart.reduce((s,i)=>s+i.qty,0);
+  cartCount.textContent = count;
+  if(cart.length===0){
+    cartItemsEl.innerHTML = `
+      <div class="cart-empty">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1.5"/><circle cx="18" cy="21" r="1.5"/><path d="M2.5 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21.5 8H6.2"/></svg>
+        سلتك فارغة.<br>تصفح المنتجات وأضف ما يناسبك.
+      </div>`;
+    cartFoot.hidden = true;
+    return;
+  }
+  cartItemsEl.innerHTML = cart.map((i,idx)=>`
+    <div class="c-item">
+      <div class="c-thumb">${ICONS[i.icon]}</div>
+      <div class="c-info">
+        <h4>${i.name}</h4>
+        <div class="cut">التقطيع: ${i.cut}</div>
+        <div class="p">${fmt(i.price*i.qty)} ر.س</div>
+      </div>
+      <div class="c-actions">
+        <div class="qty">
+          <button data-qty="+1" data-i="${idx}" aria-label="زيادة الكمية">+</button>
+          <span>${i.qty}</span>
+          <button data-qty="-1" data-i="${idx}" aria-label="تقليل الكمية">−</button>
+        </div>
+        <button class="rm" data-rm="${idx}">إزالة</button>
+      </div>
+    </div>`).join('');
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  cartTotal.textContent = `${fmt(total)} ر.س`;
+  document.getElementById('checkoutBtn').href = waLink();
+  cartFoot.hidden = false;
+}
+updateCart();
+
+cartItemsEl.addEventListener('click', e=>{
+  const q = e.target.closest('[data-qty]');
+  if(q){
+    const i = +q.dataset.i;
+    cart[i].qty += (q.dataset.qty==='+1' ? 1 : -1);
+    if(cart[i].qty<=0) cart.splice(i,1);
+    updateCart(); return;
+  }
+  const r = e.target.closest('[data-rm]');
+  if(r){ cart.splice(+r.dataset.rm,1); updateCart(); }
+});
+
+/* رابط واتساب للطلب */
+function waLink(){
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  let msg = 'السلام عليكم، أرغب بتأكيد الطلب التالي من مراعي تيماء:\n\n';
+  cart.forEach((i,n)=>{
+    msg += `${n+1}. ${i.name} — التقطيع: ${i.cut} — الكمية: ${i.qty} — ${fmt(i.price*i.qty)} ر.س\n`;
+  });
+  msg += `\nالإجمالي: ${fmt(total)} ر.س\n\nالاسم:\nالحي والعنوان:\nالوقت المفضل للاستلام:`;
+  return 'https://wa.me/966550368909?text=' + encodeURIComponent(msg);
+}
+
+/* إشعار */
+const toast = document.getElementById('toast');
+const toastMsg = document.getElementById('toastMsg');
+let toastTimer;
+function showToast(text){
+  toastMsg.textContent = text;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>toast.classList.remove('show'), 2200);
+}
+
+/* قائمة الجوال */
+const nav = document.getElementById('mainNav');
+const menuToggle = document.getElementById('menuToggle');
+menuToggle.addEventListener('click', ()=>{
+  const open = nav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', open);
+  menuToggle.textContent = open ? '×' : '☰';
+});
+nav.addEventListener('click', e=>{
+  if(e.target.tagName==='A'){ nav.classList.remove('open'); menuToggle.textContent='☰'; menuToggle.setAttribute('aria-expanded','false'); }
+});
+</script>
+</body>
+</html>
